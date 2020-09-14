@@ -37,7 +37,7 @@ def run(fibo_num, divider):
     first_of_pairs_sum = 0
 
     for i in range(fibo_num):
-        # get current and chek if prime
+        # get current and check if prime
         current_value = next(fibonacci_divided)
         is_current_value_prime = primes.get(current_value) is not None
 
@@ -47,21 +47,22 @@ def run(fibo_num, divider):
             if previous_prime_value != 0 and is_previous_prime:
                 pairs_counter += 1
                 first_of_pairs_sum += previous_prime_value
-                # set values to define on next step
+                # set values to define pair on next step
                 previous_prime_value = current_value
                 is_previous_prime = True
             else:
-                # set values to define on next step
+                # set values to define pair on next step
                 previous_prime_value = current_value
                 is_previous_prime = True
 
         else:
-            # set values to define on next step
+            # set values to define pair on next step
             is_previous_prime = False
 
     print("count of pairs: " + str(pairs_counter) + " sum of first elements: " + str(first_of_pairs_sum))
 
 # test
+
 
 fibo_num = 14
 divider = 10
