@@ -25,32 +25,38 @@ def get_primes(n):
 def run(fibo_num, divider):
     # create sieve 0 to divider
     primes = get_primes(divider)
-    # print(sieve)
     # create divided fibo generator
     fibonacci_divided = fibonacci_divided_generator(divider)
 
+    # values to define prime pairs
     previous_prime_value = 0
     is_previous_prime = False
 
+    # result containers
     pairs_counter = 0
     first_of_pairs_sum = 0
 
     for i in range(fibo_num):
+        # get current and chek if prime
         current_value = next(fibonacci_divided)
         is_current_value_prime = primes.get(current_value) is not None
 
         if is_current_value_prime:
 
+            # try to define pair and calculate it
             if previous_prime_value != 0 and is_previous_prime:
                 pairs_counter += 1
                 first_of_pairs_sum += previous_prime_value
+                # set values to define on next step
                 previous_prime_value = current_value
                 is_previous_prime = True
             else:
+                # set values to define on next step
                 previous_prime_value = current_value
                 is_previous_prime = True
 
         else:
+            # set values to define on next step
             is_previous_prime = False
 
     print("count of pairs: " + str(pairs_counter) + " sum of first elements: " + str(first_of_pairs_sum))
