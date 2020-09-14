@@ -57,6 +57,7 @@ def run(fibo_num, divider):
 
         else:
             # set values to define pair on next step
+            previous_prime_value = 0
             is_previous_prime = False
 
     print("count of pairs: " + str(pairs_counter) + " sum of first elements: " + str(first_of_pairs_sum))
